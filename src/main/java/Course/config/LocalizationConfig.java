@@ -24,7 +24,7 @@ public class LocalizationConfig extends AcceptHeaderLocaleResolver implements We
     @Override
     public Locale resolveLocale(HttpServletRequest request) {
         String lang = request.getHeader("Accept-Language");
-        if (Objects.isNull(lang) || lang.isEmpty() || 1==1) {
+        if (Objects.isNull(lang) || lang.isEmpty()) {
             return Locale.getDefault();
         } else {
             return Locale.lookup(Locale.LanguageRange.parse(lang), Arrays.asList(LOCALE_AZ, LOCALE_EN,LOCALE_TR));
