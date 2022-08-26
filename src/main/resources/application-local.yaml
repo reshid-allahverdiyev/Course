@@ -1,0 +1,28 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/smapp
+    username: root
+    password: asdfghjkl
+  redis:
+    client-name: JEDIS
+    host: 127.0.0.1
+    port: 6379
+    timeout: 3000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+server:
+  port: 8081
+
+secret:
+  jwt: "orientcourseorientcourseorientcourseorientcourseorientcourseorientcourse"
+
