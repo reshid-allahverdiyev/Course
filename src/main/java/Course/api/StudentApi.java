@@ -1,5 +1,7 @@
 package Course.api;
 
+import Course.config.studentstatemachine.StudentEvent;
+import Course.config.studentstatemachine.StudentState;
 import Course.entity.StudentEntity;
 import Course.request.CreateStudentRequest;
 import Course.request.LoginRequest;
@@ -8,6 +10,7 @@ import Course.response.*;
 import Course.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.statemachine.config.StateMachineFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +22,7 @@ public class  StudentApi {
 
     @Autowired
     private StudentService studentService;
+
 
 
     @GetMapping("/search")
@@ -36,6 +40,14 @@ public class  StudentApi {
     ) {
         return studentService.getStudentById(id);
     }
+
+    @GetMapping("/rev/{id}")
+    public GetStudentResponse getStudentForReviev(
+            @PathVariable("id") Long id
+    ) {
+        return studentService.getForReview(id);
+    }
+
 
     @PostMapping("/create")
     public GetStudentResponse createStudent(

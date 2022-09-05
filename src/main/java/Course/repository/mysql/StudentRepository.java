@@ -40,12 +40,11 @@ public interface StudentRepository extends PagingAndSortingRepository<StudentEnt
 // Redis +
 // Localization +
 // Auditable +
-
+// Schedule+
+// Statemachine+
 
 
 // Docker
-// Test App Tests
+// Test App
 // Cacheing
-// Schedule
 // Batch
-// Statemachine

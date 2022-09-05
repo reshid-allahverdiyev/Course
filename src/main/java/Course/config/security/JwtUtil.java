@@ -1,9 +1,8 @@
 package Course.config.security;
 
-import Course.entity.TokenEntity;
 import Course.entity.TokenEntity2;
 import Course.mapper.ObjectMapper;
-import Course.repository.redis.TokenRepository;
+import Course.repository.redis.TokenRepositoryRedis;
 import Course.response.AuthResponse;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -24,7 +23,7 @@ import java.util.stream.Collectors;
 public class JwtUtil {
     @Value("${secret.jwt}")
     private String jwtSecret;
-    private final TokenRepository tokenRepository;
+    private final TokenRepositoryRedis tokenRepository;
     private final ObjectMapper objectMapper;
 
     @PostConstruct

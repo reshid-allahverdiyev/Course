@@ -1,5 +1,6 @@
 package Course.entity;
 
+import Course.config.studentstatemachine.StudentState;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,5 +28,9 @@ public class StudentEntity {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "info_id")
     private StudentInfoEntity studentInfo;
+
+    @Column(name = "state")
+    @Enumerated(EnumType.STRING)
+    private StudentState state;
 
 }
